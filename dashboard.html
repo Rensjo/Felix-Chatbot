@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 fluid top-full sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie gt-ie8 fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if !IE]><!--><html class="fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"><!-- <![endif]-->
+<head>
+	<title>Our Lady Of Fatima University</title>
+	<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+<!-- CSRF Token -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://sis.fatima.edu.ph/assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sis.fatima.edu.ph/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sis.fatima.edu.ph/assets/icons/favicon-16x16.png">
+<link rel="manifest" href="https://sis.fatima.edu.ph/assets/icons/site.webmanifest">
+<link rel="mask-icon" href="https://sis.fatima.edu.ph/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="https://sis.fatima.edu.ph/assets/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="https://sis.fatima.edu.ph/assets/icons/browserconfig.xml">
+<meta name="theme-color" content="#008C44">	<!-- CSRF Token -->
+    <meta name="csrf-token" content="W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU">
+
+	<!--
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+	<!--[if lt IE 9]><link rel="stylesheet" href="https://sis.fatima.edu.ph/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+	
+		<link rel="stylesheet" href="https://sis.fatima.edu.ph/assets/css/admin/module.main.css" />
+	
+		<style type="text/css">
+		.nopadding{
+			padding: 0 !important;
+			vertical-align: middle !important;
+		}
+		.table tr:not(.unpaid):hover td{
+			background-color: #EAEAEA !important;
+		}
+		.smfont{
+			font-size: 1vw !important;
+		}
+		.btn-wrap {
+		    white-space: normal !important;
+		    height: 95px !important;
+		}
+		.btn-wrap-sm {
+		    white-space: normal !important;
+		    height: 50px !important;
+		}
+		.table-super-condensed td, .table-super-condensed th{
+			padding : 2px !important;
+		}
+		.table-va-middle td, .table-va-middle th{
+			vertical-align: middle !important;
+		}
+		.super-condensed{
+			padding : 2px !important;
+		}
+		.clickable{
+			cursor: pointer !important;
+		}
+		.tag_prereq{
+			background-color: #3399FF !important;
+		color: #FFFFFF;
+		}
+		.tag_coreq{
+			background-color: #F8DB48 !important;
+		color: #999999;
+		}
+		.tag_noslots{
+			background-color: #E48218 !important;
+		color: #EAEAEA;
+		}
+		.tag_taken{
+			background-color: #3C674C !important;
+		color: #FFFFFF;
+		}
+		td.text-red{
+			color: #ff1515 !important;
+		}
+		.dropdown-menu{
+			width: min-content !important;
+		}
+	</style>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <![endif]-->
+
+				
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery/jquery.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery/jquery-migrate.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/modernizr/modernizr.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/less-js/less.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-checkbox/fuelux-checkbox.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-radio/fuelux-radio.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/select2/assets/lib/js/select2.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/jquery.formatCurrency-1.4.0.js"></script>
+<script src="https://sis.fatima.edu.ph/js/js.cookie.js"></script>
+<script src="https://sis.fatima.edu.ph/js/sweetalert.min.js"></script>
+<!-- Scripts -->
+<script>
+    window.Laravel = {"csrfToken":"W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU","url":"https:\/\/sis.fatima.edu.ph"};
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+<!-- Global -->
+<script>
+
+var basePath = '',
+	commonPath = "https://sis.fatima.edu.ph/assets/",
+	rootPath = '../',
+	DEV = false,
+	componentsPath = "https://sis.fatima.edu.ph/assets/components/";
+
+var primaryColor = '#016021',
+	dangerColor = '#b55151',
+	infoColor = '#74a6d0',
+	successColor = '#609450',
+	warningColor = '#ab7a4b',
+	inverseColor = '#45484d';
+
+var themerPrimaryColor = primaryColor;
+var progress_on = false;
+</script>
+<style>
+	html.sidebar-full #menu.overflow-y-auto{
+		height:calc(100vh + 200px) !important;
+		/**
+		overflow-y: auto !important;
+		overflow-x: visible !important; 
+		*/
+	}
+	#content{
+		min-height:calc(100vh + 200px) !important;
+	}
+</style>
+<Style>
+	df-messenger {
+		--df-messenger-button-titlebar-color: #475B5A;
+		--df-messenger-chat-background-color: #b5cbca;
+		--df-messenger-bot-message:#9bb0af;
+		--df-messenger-send-icon: #475B5A;
+		--df-messenger-border-radius: 20px;
+		
+	}
+</Style>
+
+</head>
+<body class="">
+
+		<!-- Main Container Fluid -->
+	<div class="container-fluid fluid menu-left ">
+
+				<!-- Sidebar menu & content wrapper -->
+		<div id="wrapper">
+
+		<!-- Sidebar Menu -->
+		<div id="menu" class="hidden-xs hidden-print">
+
+			<!-- Brand -->
+			<a href="https://sis.fatima.edu.ph" class="appbrand">
+				<p>A  I  M  S  v  2.0</p>
+				<p>Academic Information Management System</p>
+			</a>
+			<!-- Scrollable menu wrapper with Maximum height -->
+<div class="slim-scroll" data-scroll-height="800px">
+			
+	<!-- Sidebar Profile -->
+	<span class="profile center separator bottom">
+	
+			<img src="https://sis.fatima.edu.ph/assets/images/olfu-logo-png.png" width='162px'/>
+		<p style="color: #008C44; margin-top: 5px; font-size: 16px; font-weight: bold;">Valenzuela</p>
+			
+		
+	</span>
+	<!-- // Sidebar Profile END -->
+	
+	<ul>
+        <li class="dropdown dd-1  active ">
+            <a href="dashboard.html" class="glyphicons dashboard"><i></i>Dashboard</a>
+        </li>
+            
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="password.html" ><i></i>Password</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="academic calendar.html" ><i></i>Academic Calendar</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="section offering.html" ><i></i>Section Offering</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="registration.html" ><i></i>Registration</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="profile.html" ><i></i>Profile</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="grades.html" ><i></i>Grades</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="account.html" ><i></i>Account</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="messaging.html" ><i></i>Messaging</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="chatbot.html" ><i></i>Chatbot</a>
+                        </li>
+
+																	
+				<!-- <li class="glyphs">
+		<ul>
+			<li class="active"><a href="icons.html?lang=en" class="glyphicons heart"><i></i></a></li>
+			<li><a href="icons.html?lang=en" class="glyphicons home"><i></i></a></li>
+			<li><a href="icons.html?lang=en" class="glyphicons bin"><i></i></a></li>
+			<li><a href="icons.html?lang=en" class="glyphicons user"><i></i></a></li>
+		</ul>
+	</li> -->
+	<!-- <li class="search open">
+		<form autocomplete="off" class="dropdown dd-1">
+			<input type="text" value="" placeholder="Type for suggestions .." data-toggle="typeahead" />
+			<button type="button" class="glyphicons search"><i></i></button>
+		</form>
+	</li> -->
+	</ul>
+	<div class="clearfix"></div>
+	<!-- 
+	<div class="alert alert-primary">
+		<a class="close" data-dismiss="alert">&times;</a>
+		<p>Integer quis tempor mi. Donec venenatis dui in neque fringilla at iaculis libero ullamcorper. In velit sem, sodales id hendrerit ac, fringilla et est.</p>
+	</div> -->
+			
+</div>
+<!-- // Scrollable Menu wrapper with Maximum Height END -->			<!-- yield('menu-left') -->
+
+		</div>
+		<!-- // Sidebar Menu END -->
+
+		<!-- Content -->
+		<div id="content">
+
+						<!-- Top navbar -->
+			<div class="navbar main">
+
+				<!-- Menu Toggle Button -->
+				<button type="button" class="btn btn-navbar navbar-toggle pull-left">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- // Menu Toggle Button END -->
+
+				<!-- Full Top Style -->
+<ul class="topnav pull-left">
+	<li class="dropdown dd-1 active">
+		<a href="https://sis.fatima.edu.ph" class="glyphicons dashboard"><i></i> Dashboard</a>
+	</li>
+	
+									</ul>
+<!-- // Full Top Style END -->
+				<!-- Top Menu Right -->
+<ul class="topnav pull-right">
+
+	<!-- Profile / Logout menu -->
+	<li class="account dropdown dd-1">
+				<a data-toggle="dropdown" href="#" class="glyphicons logout lock"><span class="hidden-tablet hidden-desktop-1 user_profile_name">FELIX BATUMBAKAL</span><i></i></a>
+			
+		<ul class="dropdown-menu pull-right">
+			<!-- <li><a href="my_account_advanced.html?lang=en" class="glyphicons cogwheel">Settings<i></i></a></li>
+			<li><a href="my_account_advanced.html?lang=en" class="glyphicons camera">My Photos<i></i></a></li> -->
+						<li class="profile">
+				<span>
+					<span class="heading">Profile <a href="#" class="editprofile pull-right">edit</a></span>
+					<span class="media display-block margin-none">
+						<span class="pull-left display-block thumb">
+															<img src="https://sis.fatima.edu.ph/getimage/867764/80/230327073614" width="35px" alt=""/>
+														
+						</span>
+						<span class="media-body display-block">
+							<a href="#" class="editprofile user_profile_name">FELIX BATUMBAKAL</a>
+							<!-- <small>contact@mosaicpro.biz</small> -->
+						</span>
+					</span>
+				</span>
+			</li>
+						<li class="innerTB half">
+				<span>
+					<a class="btn btn-default btn-xs pull-right" href="https://sis.fatima.edu.ph/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sign Out</a>
+					<form id="logout-form" action="https://sis.fatima.edu.ph/logout" method="POST" style="display: none;"><input type="hidden" name="_token" value="W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU"></form>
+					<span class="clearfix"></span>
+				</span>
+			</li>
+		</ul>
+			</li>
+	<!-- // Profile / Logout menu END -->
+	
+</ul>
+<!-- // Top Menu Right END -->
+<script>
+	$(function(){
+				var isapplicant = "";
+		var user_id = "867764";
+		var userAccessLevel = "normal";
+		var modalTitle = "Reset Password"
+		if(userAccessLevel == "superadmin"){
+			modalTitle = "Basic Information";
+		}
+		
+	
+			$(".editprofile").click(function(){
+				$("#modal-mainpage .modal-title").html(modalTitle);
+				$("#modal-mainpage .innerLR").html('<i class="fa fa-spinner fa-spin fa-2x fa-fw text-danger"></i> Loading...');
+				$("#modal-mainpage").modal('show');	
+				$.ajax({
+						url: "https://sis.fatima.edu.ph/displayuserbasicinfo",
+						type: "POST",
+						data: {
+							id : user_id,
+							isMenu : 1
+						},
+						success:function(dta){
+							$("#modal-mainpage .innerLR").html(dta);
+						},
+						error:function(dta){
+							$("#modal-mainpage .innerLR").html('Oops!... Something went wrong.');
+						}
+					});
+			});
+		
+		
+	});
+</script>
+
+
+				<div class="clearfix"></div>
+				<span class="toggle-navbar"></span>
+			</div>
+			<!-- Top navbar END -->
+
+<!-- <ul class="breadcrumb">
+	<li>You are here</li>
+	<li><a href="dashboard.html" class="glyphicons dashboard"><i></i> A I M S</a></li>
+	<li class="divider"></li>
+	<li>Dashboard</li>
+	<li class="divider"></li>
+	<li>Users</li>
+</ul>
+ -->
+ <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+                    <df-messenger
+                    intent="WELCOME"
+                    background-color="green"
+                    chat-title="Felix - Bot"
+                    agent-id="a2330ac2-c4c5-4ecb-b412-c4b97b19cdb8"
+                    language-code="en"
+                    chat-icon="https://png2.cleanpng.com/sh/23263226ddbb622e1c5ba29840b2b35a/L0KzQYm3VcA0N6pmj5H0aYP2gLBuTgBpd5Zzgeo2ZHXmcb20jPVobZ9peeRELXP1dbL7lgJmNZRmip9sbHnzPbL5lL1xcJDqhttDLUXkdbO9gBMxPWg9SdUCLka2Q4K4WcM0OWY3TaUCOEK3QIS8WMQveJ9s/kisspng-phoenix-decal-legendary-creature-car-clip-art-phoenix-5aeb6cc05781c7.6331193315253782403584.png"
+                    ></df-messenger>
+
+
+<ul class="breadcrumb">
+	<li>You are here</li>
+	<li><a href="dashboard.html" class="glyphicons dashboard"><i></i> A I M S</a></li>
+	<li class="divider"></li>
+	<li>Student</li>
+</ul>
+<div class="innerLR" id='mainpage_content'>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <div id="widget_&lt;i-class=&quot;fa-fa-bullhorn&quot;-data-fa-transform=&quot;rotate--45&quot;&gt;&lt;/i&gt;-announcements" class="widget"
+        >
+        <div class="widget-head">
+                <h4 class="heading text-primary"><i class="fa fa-bullhorn" data-fa-transform="rotate--45"></i> Announcements</h4>
+                    </div>
+    	<div class="widget-body ">
+        <h5>No announcement.</h5>
+	</div>
+</div>        </div>
+    </div>
+</div>
+		</div>
+		<!-- // Content END -->
+
+				</div>
+		<div class="clearfix"></div>
+		<!-- // Sidebar menu & content wrapper END -->
+
+		<div id="footer" class="hidden-print">
+
+			<!--  Copyright Line -->
+			<div class="copy">&copy; 2017 - <a target='_BLANK' href="http://www.pinnacleasia.com">Pinnacle Technologies, Inc.</a> - All Rights Reserved.</div>
+			<!--  End Copyright Line -->
+
+		</div>
+		<!-- // Footer END -->
+
+
+
+	</div>
+	<!-- // Main Container Fluid END -->
+<!-- Modal -->
+<div class="modal fade" id="modal-mainpage">
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal heading -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title"></h3>
+			</div>
+			<!-- // Modal heading END -->
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="innerAll">
+					<div class="innerLR">
+
+					</div>
+				</div>
+			</div>
+			<!-- // Modal body END -->
+		</div>
+	</div>
+
+</div>
+<!-- // Modal END -->
+
+<!-- Modal -->
+
+<!-- // Modal END -->
+
+<div class="modal fade" id="modal-inactivity">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title"></h3>
+			</div>
+
+			<div class="modal-body">
+				<div class="">
+					<div class="innerLR text-center"><br>
+						<h4>Your account is now suspended.</h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<a class="btn btn-info" data-dismiss="modal" aria-hidden="true" href="https://sis.fatima.edu.ph/logout" onclick="event.preventDefault();document.getElementById('logoutForm').submit();">
+					Confirm
+				</a>
+				<form id="logoutForm" action="https://sis.fatima.edu.ph/logout" method="POST" style="display: none;"><input type="hidden" name="_token" value="W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU"></form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://sis.fatima.edu.ph/assets/components/library/bootstrap/js/bootstrap.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/breakpoints/breakpoints.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-checkbox/fuelux-checkbox.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-radio/fuelux-radio.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/bootstrap-select/assets/lib/js/bootstrap-select.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/bootstrap-select/assets/custom/js/bootstrap-select.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/notifications/notyfy/assets/lib/js/jquery.notyfy.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/modals/assets/js/bootbox-4.4.0.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/tables/classic/assets/js/tables-classic.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v2.1.0"></script>
+
+
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/holder/holder.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/widgets/widget-collapsible/assets/widget-collapsible.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/intercom.min.js"></script>
+<script src="https://sis.fatima.edu.ph/js/idle-timer.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/idle-timer.init.js?v=v2.1.0&amp;4"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/core/js/core.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/jquery.ba-throttle-debounce.js"></script>
+<script src="https://sis.fatima.edu.ph/js/functions.js"></script>
+ 
+
+<script>
+	(function($){
+		// use debounce so we dont update menus every tick of the event
+		$(window).on('resize',$.debounce(250,function(e){
+			var nav = 0; // $('.navbar.main').height();
+			var footer = $('#footer').height();
+			var h = $(window).height();
+			$focused = $(document.activeElement);
+			$('.dropdown-menu').each(function(){
+				// http://stackoverflow.com/a/5974377/6458222
+				// show then hide to get offset of non displayed;
+				// but show/hide doesnt work so we will simulate click..
+				var $parent = $(this).parent('li.dropdown');
+				var visible = $parent.hasClass('open');
+				// console.log(visible);
+				if(!visible){
+					$parent.find('[data-toggle]').dropdown('toggle'); //('click');
+					$focused.trigger('focus');
+				}
+				var top = $(this).offset().top;
+				if(!visible){
+					$parent.find('[data-toggle]').dropdown('toggle'); //('click');
+					$focused.trigger('focus');
+				}
+				var maxHeight = h - (nav + footer + top);
+				$(this).css('max-height',maxHeight);
+				$(this).css('overflow-y','auto');
+			});
+		}));
+		$(window).trigger('resize');
+
+		$('body').on('mouseover','#menu .dropdown,.navbar.main .dropdown',function(e){
+			var self = this;
+			$(self).addClass('open').removeClass('removeReady');
+		}).on('mouseout','#menu .dropdown,.navbar.main .dropdown',function(){
+			var self = this;
+			$(self).addClass('removeReady');
+
+			setTimeout(function(e){
+				if($(self).hasClass('removeReady')){
+					$(self).removeClass('open').removeClass('removeReady');
+				}
+			},350);
+		});
+	})(jQuery);
+	function userauthenticate(message,access_id,nextevent,nexterrorevent){
+		var useraccessbox;
+		$.ajax({
+			url: "https://sis.fatima.edu.ph/useraccess",
+			data:{
+				message:message,
+				access_id:access_id
+			},
+			type:"POST",
+			success:function(display){
+				useraccessbox = bootbox.dialog({
+					title: "User Authentication",
+					message:display,
+					size: "small",
+					buttons: {
+				        confirm: {
+				            label: 'Authenticate',
+				            className: 'btn-success',
+				            callback:function(a){
+				            	if($("#form_useraccess input[name='user_username']").val() == ""){
+				            		$.notyfy.closeAll();
+				            		$("#form_useraccess .form_notification").notyfy({
+										text: "Username is required",
+										type: 'error',
+										timeout: true
+									});
+									$("#form_useraccess input[name='user_username']").focus().select();
+				            	}else if($("#form_useraccess input[name='user_password']").val() == ""){
+				            		$.notyfy.closeAll();
+				            		$("#form_useraccess .form_notification").notyfy({
+										text: "Password is required",
+										type: 'error',
+										timeout: true
+									});
+									$("#form_useraccess input[name='user_password']").focus().select();
+				            	}else{
+						    		var form_data = $("#form_useraccess").serializeArray();
+							    		form_data.push({
+											name : 'access_id',
+											value: access_id
+										});
+						    		$.ajax({
+										url: "https://sis.fatima.edu.ph/userauthenticate",
+										data:form_data,
+										dataType:"JSON",
+										type:"POST",
+										success:function(dta){
+											$.notyfy.closeAll();
+											if(dta.status == 1){
+												if(typeof nextevent === 'function'){
+									    			nextevent();
+									    		}
+									    		useraccessbox.modal("hide");
+									    	}else{
+									    		$("#form_useraccess .form_notification").notyfy({
+													text: dta.message,
+													type: 'error',
+													timeout: true
+												});
+												$("#form_useraccess input[name='user_password']").focus().select();
+									    	}
+										}
+									});
+						    	}
+						    	return false;
+						    }
+				        },
+				        cancel: {
+				            label: 'Cancel',
+				            className: 'btn-danger',
+				            callback: function(a){
+				            	if(typeof nexterrorevent === 'function'){
+					    			nexterrorevent();
+					    		}
+				            	useraccessbox.modal("hide");
+				            }
+				        }
+				    },
+				    callback:function(a){
+				    	return false;
+				    }
+				}).on('shown.bs.modal', function (e) {
+					var myself = $(this);
+					// console.log(myself[0]);
+			        $("#form_useraccess input[name='user_username']").focus();
+			        $("#form_useraccess input[name='user_username'],#form_useraccess input[name='user_password']").keyup(function(e){
+			        	if(e.keyCode == 13){
+			        		myself.find("button[data-bb-handler='confirm']").click();
+			        	}
+			        });
+			    });
+			},
+			error:function(){
+				bootbox.alert("Oops, somethings wrong!");
+			}
+		});
+	}
+
+	jQuery.each( [ "patch", "put", "delete" ], function( i, method ) {
+		jQuery[ method ] = function( url, data, callback, type ) {
+			if ( jQuery.isFunction( data ) ) {
+			type = type || callback;
+			callback = data;
+			data = undefined;
+			}
+
+			return jQuery.ajax({
+			url: url,
+			type: method,
+			dataType: type,
+			data: data,
+			success: callback
+			});
+		};
+	});
+
+	
+	$("#modal-message").modal("show");
+				</script>
+                
+	
+	<script src="https://sis.fatima.edu.ph/js/auth_webrtc.js"></script>	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142477114-4"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', "UA-142477114-4");
+</script>
+<script src="//rum-static.pingdom.net/pa-5ed5d229bb91310015000266.js" async></script>
+
+
+<script>
+    </script>
+    </body>
+</html>

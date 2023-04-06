@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 fluid top-full sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie gt-ie8 fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"> <![endif]-->
+<!--[if !IE]><!--><html class="fluid top-full sticky-top sidebar sidebar-full sticky-sidebar"><!-- <![endif]-->
+<head>
+	<title>Our Lady Of Fatima University</title>
+	<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+<!-- CSRF Token -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://sis.fatima.edu.ph/assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sis.fatima.edu.ph/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sis.fatima.edu.ph/assets/icons/favicon-16x16.png">
+<link rel="manifest" href="https://sis.fatima.edu.ph/assets/icons/site.webmanifest">
+<link rel="mask-icon" href="https://sis.fatima.edu.ph/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="https://sis.fatima.edu.ph/assets/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="https://sis.fatima.edu.ph/assets/icons/browserconfig.xml">
+<meta name="theme-color" content="#008C44">	<!-- CSRF Token -->
+    <meta name="csrf-token" content="W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU">
+
+	<!--
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	-->
+
+	<!--[if lt IE 9]><link rel="stylesheet" href="https://sis.fatima.edu.ph/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+	
+		<link rel="stylesheet" href="https://sis.fatima.edu.ph/assets/css/admin/module.main.css" />
+	
+		<style type="text/css">
+		.nopadding{
+			padding: 0 !important;
+			vertical-align: middle !important;
+		}
+		.table tr:not(.unpaid):hover td{
+			background-color: #EAEAEA !important;
+		}
+		.smfont{
+			font-size: 1vw !important;
+		}
+		.btn-wrap {
+		    white-space: normal !important;
+		    height: 95px !important;
+		}
+		.btn-wrap-sm {
+		    white-space: normal !important;
+		    height: 50px !important;
+		}
+		.table-super-condensed td, .table-super-condensed th{
+			padding : 2px !important;
+		}
+		.table-va-middle td, .table-va-middle th{
+			vertical-align: middle !important;
+		}
+		.super-condensed{
+			padding : 2px !important;
+		}
+		.clickable{
+			cursor: pointer !important;
+		}
+		.tag_prereq{
+			background-color: #3399FF !important;
+		color: #FFFFFF;
+		}
+		.tag_coreq{
+			background-color: #F8DB48 !important;
+		color: #999999;
+		}
+		.tag_noslots{
+			background-color: #E48218 !important;
+		color: #EAEAEA;
+		}
+		.tag_taken{
+			background-color: #3C674C !important;
+		color: #FFFFFF;
+		}
+		td.text-red{
+			color: #ff1515 !important;
+		}
+		.dropdown-menu{
+			width: min-content !important;
+		}
+	</style>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <![endif]-->
+
+				
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery/jquery.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery/jquery-migrate.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/modernizr/modernizr.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/less-js/less.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-checkbox/fuelux-checkbox.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-radio/fuelux-radio.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/select2/assets/lib/js/select2.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/jquery.formatCurrency-1.4.0.js"></script>
+<script src="https://sis.fatima.edu.ph/js/js.cookie.js"></script>
+<script src="https://sis.fatima.edu.ph/js/sweetalert.min.js"></script>
+<!-- Scripts -->
+<script>
+    window.Laravel = {"csrfToken":"W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU","url":"https:\/\/sis.fatima.edu.ph"};
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+<!-- Global -->
+<script>
+
+var basePath = '',
+	commonPath = "https://sis.fatima.edu.ph/assets/",
+	rootPath = '../',
+	DEV = false,
+	componentsPath = "https://sis.fatima.edu.ph/assets/components/";
+
+var primaryColor = '#016021',
+	dangerColor = '#b55151',
+	infoColor = '#74a6d0',
+	successColor = '#609450',
+	warningColor = '#ab7a4b',
+	inverseColor = '#45484d';
+
+var themerPrimaryColor = primaryColor;
+var progress_on = false;
+</script>
+<style>
+	html.sidebar-full #menu.overflow-y-auto{
+		height:calc(100vh + 200px) !important;
+		/**
+		overflow-y: auto !important;
+		overflow-x: visible !important; 
+		*/
+	}
+	#content{
+		min-height:calc(100vh + 200px) !important;
+	}
+</style>
+<Style>
+	df-messenger {
+		--df-messenger-button-titlebar-color: #475B5A;
+		--df-messenger-chat-background-color: #b5cbca;
+		--df-messenger-bot-message:#9bb0af;
+		--df-messenger-send-icon: #475B5A;
+		--df-messenger-border-radius: 20px;
+		
+	}
+</Style>
+
+</head>
+<body class="">
+
+		<!-- Main Container Fluid -->
+	<div class="container-fluid fluid menu-left ">
+
+				<!-- Sidebar menu & content wrapper -->
+		<div id="wrapper">
+
+		<!-- Sidebar Menu -->
+		<div id="menu" class="hidden-xs hidden-print">
+
+			<!-- Brand -->
+			<a href="https://sis.fatima.edu.ph" class="appbrand">
+				<p>A  I  M  S  v  2.0</p>
+				<p>Academic Information Management System</p>
+			</a>
+			<!-- Scrollable menu wrapper with Maximum height -->
+<div class="slim-scroll" data-scroll-height="800px">
+			
+	<!-- Sidebar Profile -->
+	<span class="profile center separator bottom">
+	
+			<img src="https://sis.fatima.edu.ph/assets/images/olfu-logo-png.png" width='162px'/>
+		<p style="color: #008C44; margin-top: 5px; font-size: 16px; font-weight: bold;">Valenzuela</p>
+			
+		
+	</span>
+	<!-- // Sidebar Profile END -->
+	
+	<ul>
+        <li class="dropdown dd-1 ">
+            <a href="dashboard.html" class="glyphicons dashboard"><i></i>Dashboard</a>
+        </li>
+            
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="password.html" ><i></i>Password</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="academic calendar.html" ><i></i>Academic Calendar</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1  active ">
+                            <a href="section offering.html" ><i></i>Section Offering</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="registration.html" ><i></i>Registration</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="profile.html" ><i></i>Profile</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="grades.html" ><i></i>Grades</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="account.html" ><i></i>Account</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="messaging.html" ><i></i>Messaging</a>
+                        </li>
+                                                                                                                                    <li class="dropdown dd-1 ">
+                            <a href="chatbot.html" ><i></i>Chatbot</a>
+                        </li>
+																	
+				<!-- <li class="glyphs">
+		<ul>
+			<li class="active"><a href="icons.html?lang=en" class="glyphicons heart"><i></i></a></li>
+			<li><a href="icons.html?lang=en" class="glyphicons home"><i></i></a></li>
+			<li><a href="icons.html?lang=en" class="glyphicons bin"><i></i></a></li>
+			<li><a href="icons.html?lang=en" class="glyphicons user"><i></i></a></li>
+		</ul>
+	</li> -->
+	<!-- <li class="search open">
+		<form autocomplete="off" class="dropdown dd-1">
+			<input type="text" value="" placeholder="Type for suggestions .." data-toggle="typeahead" />
+			<button type="button" class="glyphicons search"><i></i></button>
+		</form>
+	</li> -->
+	</ul>
+	<div class="clearfix"></div>
+	<!-- 
+	<div class="alert alert-primary">
+		<a class="close" data-dismiss="alert">&times;</a>
+		<p>Integer quis tempor mi. Donec venenatis dui in neque fringilla at iaculis libero ullamcorper. In velit sem, sodales id hendrerit ac, fringilla et est.</p>
+	</div> -->
+			
+</div>
+<!-- // Scrollable Menu wrapper with Maximum Height END -->			<!-- yield('menu-left') -->
+
+		</div>
+		<!-- // Sidebar Menu END -->
+
+		<!-- Content -->
+		<div id="content">
+
+						<!-- Top navbar -->
+			<div class="navbar main">
+
+				<!-- Menu Toggle Button -->
+				<button type="button" class="btn btn-navbar navbar-toggle pull-left">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- // Menu Toggle Button END -->
+
+				<!-- Full Top Style -->
+<ul class="topnav pull-left">
+	<li class="dropdown dd-1 ">
+		<a href="https://sis.fatima.edu.ph" class="glyphicons dashboard"><i></i> Dashboard</a>
+	</li>
+	
+									</ul>
+<!-- // Full Top Style END -->
+				<!-- Top Menu Right -->
+<ul class="topnav pull-right">
+
+	<!-- Profile / Logout menu -->
+	<li class="account dropdown dd-1">
+				<a data-toggle="dropdown" href="#" class="glyphicons logout lock"><span class="hidden-tablet hidden-desktop-1 user_profile_name">FELIX BATUMBAKAL</span><i></i></a>
+			
+		<ul class="dropdown-menu pull-right">
+			<!-- <li><a href="my_account_advanced.html?lang=en" class="glyphicons cogwheel">Settings<i></i></a></li>
+			<li><a href="my_account_advanced.html?lang=en" class="glyphicons camera">My Photos<i></i></a></li> -->
+						<li class="profile">
+				<span>
+					<span class="heading">Profile <a href="#" class="editprofile pull-right">edit</a></span>
+					<span class="media display-block margin-none">
+						<span class="pull-left display-block thumb">
+															<img src="https://sis.fatima.edu.ph/getimage/867764/80/230327073949" width="35px" alt=""/>
+														
+						</span>
+						<span class="media-body display-block">
+							<a href="#" class="editprofile user_profile_name">FELIX BATUMBAKAL</a>
+							<!-- <small>contact@mosaicpro.biz</small> -->
+						</span>
+					</span>
+				</span>
+			</li>
+						<li class="innerTB half">
+				<span>
+					<a class="btn btn-default btn-xs pull-right" href="https://sis.fatima.edu.ph/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sign Out</a>
+					<form id="logout-form" action="https://sis.fatima.edu.ph/logout" method="POST" style="display: none;"><input type="hidden" name="_token" value="W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU"></form>
+					<span class="clearfix"></span>
+				</span>
+			</li>
+		</ul>
+			</li>
+	<!-- // Profile / Logout menu END -->
+	
+</ul>
+<!-- // Top Menu Right END -->
+<script>
+	$(function(){
+				var isapplicant = "";
+		var user_id = "867764";
+		var userAccessLevel = "normal";
+		var modalTitle = "Reset Password"
+		if(userAccessLevel == "superadmin"){
+			modalTitle = "Basic Information";
+		}
+		
+	
+			$(".editprofile").click(function(){
+				$("#modal-mainpage .modal-title").html(modalTitle);
+				$("#modal-mainpage .innerLR").html('<i class="fa fa-spinner fa-spin fa-2x fa-fw text-danger"></i> Loading...');
+				$("#modal-mainpage").modal('show');	
+				$.ajax({
+						url: "https://sis.fatima.edu.ph/displayuserbasicinfo",
+						type: "POST",
+						data: {
+							id : user_id,
+							isMenu : 1
+						},
+						success:function(dta){
+							$("#modal-mainpage .innerLR").html(dta);
+						},
+						error:function(dta){
+							$("#modal-mainpage .innerLR").html('Oops!... Something went wrong.');
+						}
+					});
+			});
+		
+		
+	});
+</script>
+
+
+				<div class="clearfix"></div>
+				<span class="toggle-navbar"></span>
+			</div>
+			<!-- Top navbar END -->
+
+<!-- <ul class="breadcrumb">
+	<li>You are here</li>
+	<li><a href="https://sis.fatima.edu.ph" class="glyphicons dashboard"><i></i> A I M S</a></li>
+	<li class="divider"></li>
+	<li>Dashboard</li>
+	<li class="divider"></li>
+	<li>Users</li>
+</ul>
+ -->
+
+ <df-messenger
+ intent="WELCOME"
+ background-color="green"
+ chat-title="Felix - Bot"
+ agent-id="a2330ac2-c4c5-4ecb-b412-c4b97b19cdb8"
+ language-code="en"
+ chat-icon="https://png2.cleanpng.com/sh/23263226ddbb622e1c5ba29840b2b35a/L0KzQYm3VcA0N6pmj5H0aYP2gLBuTgBpd5Zzgeo2ZHXmcb20jPVobZ9peeRELXP1dbL7lgJmNZRmip9sbHnzPbL5lL1xcJDqhttDLUXkdbO9gBMxPWg9SdUCLka2Q4K4WcM0OWY3TaUCOEK3QIS8WMQveJ9s/kisspng-phoenix-decal-legendary-creature-car-clip-art-phoenix-5aeb6cc05781c7.6331193315253782403584.png"
+></df-messenger>
+
+<ul class="breadcrumb">
+	<li>You are here</li>
+	<li><a href="https://sis.fatima.edu.ph" class="glyphicons dashboard"><i></i> A I M S</a></li>
+			<li class="divider"></li>
+	<li>Section Offering</li>
+	</ul>
+<h2 class="center"><b>Section Offering</b></h2>
+<div class="innerLR" id='mainpage_content'>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/calendar/assets/lib/js/fullcalendar.min.js?v=v2.1.0"></script>
+<div class="widget widget-heading-simple widget-body-white">
+ <div class="widget-body">
+	<div class='row'>
+	 	<form class="form-horizontal" method="POST" id="form_curriculum" role="form" action="https://sis.fatima.edu.ph/10/102">
+	 	<input type="hidden" name="_token" value="W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU">
+	 		    <div class="col-xs-3">
+	        <label for="SY">School Year</label>
+	        <div class="d-flex justify-content-center">
+	            <select class="form-control" id="SY" disabled="" name="SY"><option value="">- sy -</option><option value="2324">2324</option><option value="2223" selected="selected">2223</option><option value="2122">2122</option><option value="2021">2021</option><option value="1920">1920</option><option value="1819">1819</option></select> 
+					        </div>
+	    </div>    
+	   
+	    <div class="col-xs-1">
+	        <label for="SY">&nbsp;</label>
+	        <div>
+	         	
+	        </div>
+	    </div>    
+	    
+	    <div class="col-xs-8">    
+	        <label for="CourseCode">Program</label>
+	        <div>
+	            <select class="form-control" id="CourseCode" name="CourseCode"><option value="" selected="selected">- Course -</option><option value="BEE">BEE - Bachelor of Elementary Education</option><option value="BEE_INT">BEE_INT - Bachelor of Elementary Education</option><option value="BFS">BFS - Bachelor in Forensic Science</option><option value="BS BIO_INDIAN">BS BIO_INDIAN - Bachelor of Science in Biology</option><option value="BS BIO_INT">BS BIO_INT - Bachelor of Science in Biology</option><option value="BS PSYCH">BS PSYCH - Bachelor of Science in Psychology</option><option value="BSA">BSA - Bachelor of Science in Accountancy</option><option value="BSAIS">BSAIS - Bachelor of Science in Accounting Information System</option><option value="BSAT">BSAT - Bachelor of Science in Accounting Technology</option><option value="BSBIO">BSBIO - Bachelor of Science in Biology</option><option value="BSC">BSC - Bachelor of Science in Criminology</option><option value="BSCM">BSCM - Bachelor of Science in Business Administration</option><option value="BSCMBK">BSCMBK - Bachelor of Science in Business Administration Maj in Banking</option><option value="BSCMM">BSCMM - Bachelor of Science in Business Administration Maj in Marketing Mgt</option><option value="BSCMM_INT">BSCMM_INT - Bachelor of Science in Business Administration Major in Marketing Management</option><option value="BSCS">BSCS - Bachelor of Science in Computer Science</option><option value="BSCS_INT">BSCS_INT - Bachelor of Science in Computer Science</option><option value="BSEE_INT">BSEE_INT - Bachelor of Secondary Education Major in English (International)</option><option value="BSEEC">BSEEC - Bachelor of Elem Educ Maj in Early Childhood Education</option><option value="BSEMC">BSEMC - Bachelor of Science in Entertainment and Multi Media Computing</option><option value="BSHRM">BSHRM - Bachelor of Science in Hotel and Restaurant Management</option><option value="BSHRM (HOSCLO)">BSHRM (HOSCLO) - Bachelor of Science in Hotel &amp; Restaurant Management (HOSCLO)</option><option value="BSHRMCF">BSHRMCF - B.S. Hotel &amp; Restaurant Management Culinary &amp; Food Service</option><option value="BSHRMCL">BSHRMCL - B.S. Hotel &amp; Restaurant Management Cruise Line</option><option value="BSIHM">BSIHM - Bachelor of Science in International Hospitality Management</option><option value="BSIHM(CA)">BSIHM(CA) - Bachelor of Science in International Hospitality Management (Culinary Arts)</option><option value="BSIHM(CRUISE LINE OPERATION)">BSIHM(CRUISE LINE OPERATION) - Bachelor of Science in International Hospitality Management (Hotel Administration in Cruise Line Operations)</option><option value="BSIHM(REFCO)">BSIHM(REFCO) - Bachelor of Science in International Hospitality Management (Restaurant and Fast-Food Chain Operations)</option><option value="BSIT">BSIT - Bachelor of Science in Information Technology</option><option value="BSITM">BSITM - Bachelor of Science in International Tourism Management</option><option value="BSITM(ITTO)">BSITM(ITTO) - Bachelor of Science in International Tourism Management(Travel and Tour Operations)</option><option value="BSITM(MICE)">BSITM(MICE) - Bachelor of Science in International Tourism Management(Meetings, Incentives, Conventions, Exhibitions)</option><option value="BSMarE">BSMarE - Bachelor of Science in Marine Engineering</option><option value="BSMT">BSMT - Bachelor of Science in Marine Transportation</option><option value="BSN">BSN - Bachelor of Science in Nursing</option><option value="BSOM">BSOM - Bachelor of Science in Business Administration Maj in Operations &amp; Supply Chain Mgt</option><option value="BSPHARM">BSPHARM - Bachelor of Science in Pharmacy</option><option value="BSPHARMA_INT">BSPHARMA_INT - Bachelor of Science in Pharmacy</option><option value="BSPSY_INT">BSPSY_INT - Bachelor of Science in Psychology</option><option value="BSPT">BSPT - Bachelor of Science in Physical Therapy</option><option value="BSRADTECH">BSRADTECH - Bachelor of Science in Radiologic Technology</option><option value="BSRT">BSRT - Bachelor of Science in Respiratory Therapy</option><option value="BSSE">BSSE - Bachelor of Secondary Education Major In English</option><option value="BSTM">BSTM - Bachelor of Science in Travel Management</option><option value="CCN">CCN - Commercial Cooking Nc Ii (436 Hours)</option><option value="CPE">CPE - Certificate in Professional Education</option><option value="DBA">DBA - Doctor of Business Administration</option><option value="DBA_INT">DBA_INT - Doctor of Business Administration</option><option value="DMD">DMD - Doctor of Dentistry</option><option value="DMD_INT">DMD_INT - Doctor of Dentistry</option><option value="DPA">DPA - Doctor of Public Administration</option><option value="DrPH">DrPH - Doctor in Public Health with Specialization in Health Management</option><option value="DrPH_INT">DrPH_INT - Doctor in Public Health</option><option value="EdD CI">EdD CI - Doctor of Education Maj in Curriculum and Instruction</option><option value="EDDE">EDDE - Doctor of Education Major in Educational Management</option><option value="EDDE_INT">EDDE_INT - Doctor of Education Major in Educational Management</option><option value="ETEEAP (BSBA BANKING)">ETEEAP (BSBA BANKING) - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION PROGRAM (BSBA BANKING)</option><option value="ETEEAP (BSBA MARKETING)">ETEEAP (BSBA MARKETING) - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION PROGRAM (BSBA MARKETING)</option><option value="ETEEAP (BSBA OM)">ETEEAP (BSBA OM) - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION PROGRAM (BSBA OM)</option><option value="ETEEAP (BSHM)">ETEEAP (BSHM) - EXPANDED TERTIARY EDUCATION EQUIVALENCY AND ACCREDITATION PROGRAM (BSHM)</option><option value="GCP">GCP - GERIATRIC CARE PROFESSIONAL</option><option value="GS">GS - Grade School</option><option value="JHS">JHS - JUNIOR HIGH SCHOOL</option><option value="KIN">KIN - Kindergarten</option><option value="KINDER">KINDER - KINDERGARTEN</option><option value="MACT">MACT - M.A. in Teaching (Maj in College Teaching)</option><option value="MAED">MAED - Master of Arts in Education</option><option value="MAED ECED">MAED ECED - Master of Arts in Education Major in Early Childhood Education</option><option value="MAED EM">MAED EM - Master of Arts in Education Major in Educational Management</option><option value="MAED EM_INT">MAED EM_INT - Master of Arts in Education Major in Educational Management</option><option value="MAED GC">MAED GC - Master of Arts in Education Major in Guidance and Counseling</option><option value="MAED SE">MAED SE - Master of Arts in Education Major in Special Education</option><option value="MAHTM">MAHTM - Master of Arts in Hospitality &amp; Tourism Mgt</option><option value="MAN">MAN - Master of Arts in Nursing</option><option value="MAN NA">MAN NA - Master of Arts in Nursing Major in Nursing Administration</option><option value="MAN NA_INT">MAN NA_INT - Master of Arts in Nursing Major in Nursing Administration</option><option value="MANAB">MANAB - Master of Arts in Nursing(Nursing Administration)</option><option value="MANAI">MANAI - Master of Arts in Nursing(Nursing Administration) - Del</option><option value="MANAK">MANAK - Master of Arts in Nursing(Nursing Administration)</option><option value="MANDCM">MANDCM - Master of Arts in Nursing Maj in Disaster and Emergency Management</option><option value="MANDCM INT">MANDCM INT - MASTER OF ARTS IN NURSING MAJOR IN DISASTER AND EMERGENCY MANAGEMENT</option><option value="MANEB">MANEB - Master of Arts in Nursing(Nursing Administration)</option><option value="MANEI">MANEI - Master of Arts in Nursing  Major in Clinical instruction</option><option value="MANEI-INT">MANEI-INT - Master of Arts in Nursing  Major in Clinical instruction</option><option value="MANEK">MANEK - Master of Arts in Nursing(Clinical instruction)</option><option value="MAP-CP">MAP-CP - Master of Arts in Psychology Major in Counseling Psychology</option><option value="MAP-IP">MAP-IP - Master of Arts in Psychology Major in Industrial Psychology</option><option value="MAT BIO">MAT BIO - Master of Arts in Teaching (Biology)</option><option value="MAT CH">MAT CH - Master of Arts in Teaching(Chemistry)</option><option value="MAT ENG">MAT ENG - Master of Arts in Teaching (English)</option><option value="MAT ENG_INT">MAT ENG_INT - Master of Arts in Teaching (English)</option><option value="MAT FIL">MAT FIL - Master of Arts in Teaching (Filipino)</option><option value="MAT MATH">MAT MATH - Master of Arts in Teaching (MATHEMATICS)</option><option value="MBA">MBA - Master in Business Administration</option><option value="MBA NT">MBA NT - Master in Business Administration (Non-Thesis track)</option><option value="MBA_INT">MBA_INT - Master in Business Administration</option><option value="MD">MD - Doctor of Medicine</option><option value="MD B">MD B - Medicine</option><option value="MD_INDIAN">MD_INDIAN - Medicine Indian</option><option value="MD_INT">MD_INT - Medicine International</option><option value="MEDTECH">MEDTECH - Bachelor of Science in Medical Laboratory Science</option><option value="MEDTECH_INT">MEDTECH_INT - Bachelor in Medical Laboratory Science</option><option value="MHA">MHA - Master in Hospital Administration</option><option value="MHA-INT">MHA-INT - Master in Hospital Administration</option><option value="MID">MID - Midwifery</option><option value="MIT">MIT - Master in Information Technology</option><option value="MIT INT">MIT INT - Master in Information Technology</option><option value="MPA">MPA - Master of Arts in Public Administration</option><option value="MPA NT">MPA NT - Master of Arts in Public Administration (Non-Thesis Track)</option><option value="MPH">MPH - Master in Public Health</option><option value="MPH_INT">MPH_INT - Master in Public Health</option><option value="MS MT">MS MT - Master of Science in Medical Laboratory Science</option><option value="MS MT_INT">MS MT_INT - Master of Science in Medical Laboratory Science</option><option value="MS PHARM">MS PHARM - Master of Science in Pharmacy</option><option value="MSANA">MSANA - Master of Science in Anatomy</option><option value="MSCJ">MSCJ - Master of Science in Criminal Justice with Specialization in Criminology</option><option value="MSCS">MSCS - Master of Science in Computer Science</option><option value="MSD">MSD - Master of Science in Dentistry</option><option value="MSD_INT">MSD_INT - MASTER OF SCIENCE IN DENTISTRY</option><option value="MSHM">MSHM - Master of Science in Hospitality Management</option><option value="MSPT">MSPT - Master of Science in Physical Therapy</option><option value="MSPT-INT">MSPT-INT - Master of Science in Physical Therapy</option><option value="MSTM">MSTM - Master of Science in Travel Management</option><option value="ND">ND - Bachelor of Science in Nutrition &amp; Dietetics</option><option value="NUR">NUR - NURSERY</option><option value="PHD">PHD - Doctor in Philosophy</option><option value="PhD BA">PhD BA - Doctor of Philosophy in Business Administration</option><option value="PhD BA_INT">PhD BA_INT - Doctor of Philosophy in Business Administration</option><option value="PhD EM">PhD EM - Doctor of Philosophy in Educational Management</option><option value="PHD M">PHD M - Doctor of Philosophy in Education major in Mathematics</option><option value="PhD PA">PhD PA - Doctor of Philosophy in Public Administation</option><option value="PHDE_INT">PHDE_INT - Doctor of Philosophy in Educational Management</option><option value="PhDN">PhDN - Doctor of Philosophy in Nursing Major in Nursing Administration</option><option value="PhDN_INT">PhDN_INT - Doctor of Philosophy in Nursing Major in Nursing Administration</option><option value="PTCOMP">PTCOMP - PT COMPLETION</option><option value="SABP">SABP - B.S. IN BIOLOGY -SABP</option><option value="SHS-ABM">SHS-ABM - Academic Track/ Accountancy, Business and Management (ABM)</option><option value="SHS-ABM INT">SHS-ABM INT - Academic Track/ Accountancy, Business and Management (ABM) INT</option><option value="SHS-GAS">SHS-GAS - Academic Track/ General Academic (GAS)</option><option value="SHS-HUMSS">SHS-HUMSS - Academic Track/ Humanities and Social Sciences (HUMSS)</option><option value="SHS-STEM">SHS-STEM - Academic Track/ Science, Technology, Engineering and Mathematics (STEM)</option><option value="SHSPLUS-ABM">SHSPLUS-ABM - Academic Track/ Accountancy, Business and Management (ABM)</option><option value="SHSPLUS-GAS">SHSPLUS-GAS - Academic Track/  General Academic (GAS)</option><option value="SHSPLUS-HUMSS">SHSPLUS-HUMSS - Academic Track/ Humanities and Social Sciences (HUMSS)</option><option value="SHSPLUS-STEM">SHSPLUS-STEM - Academic Track/ Science, Technology, Engineering and Mathematics (STEM)</option></select> 
+	        </div>
+	    </div>
+		<div class="col-xs-4">
+	        <label for="YearLevel">Year Level</label>
+	        <div>
+	            <select class="form-control" id="YearLevel" name="YearLevel"><option value="" selected="selected">- level -</option><option value="1">First Year</option><option value="2">Second Year</option><option value="3">Third Year</option><option value="4">Fourth Year</option><option value="5">Fifth Year</option><option value="6">Sixth Year</option></select> 
+	        </div>
+	    </div>
+	    <div class="col-xs-2">
+	        <label for="Sem">Semester</label>
+	        <div>
+	            <select class="form-control" id="Sem" disabled="" name="Sem"><option value="">- select semester -</option><option value="A">First Semester</option><option value="B" selected="selected">Second Semester</option><option value="C">Summer</option><option value="D">Fourth Semester</option></select> 
+	        </div>
+	    </div>
+	    <div class="col-xs-3">
+	        <label for="ParentSection">Parent Section</label>
+	        <div class="d-flex justify-content-center">
+	            <select class="form-control" id="ParentSection" name="ParentSection"><option value="" selected="selected">- section -</option><option value="4-Y1-IRR1">4-Y1-IRR1</option><option value="A">A</option><option value="A1">A1</option><option value="A2">A2</option><option value="B">B</option><option value="B1">B1</option><option value="B2">B2</option><option value="C">C</option><option value="C1">C1</option><option value="C2">C2</option><option value="COMPLETION">COMPLETION</option><option value="D">D</option><option value="D1">D1</option><option value="D2">D2</option><option value="E">E</option><option value="E1">E1</option><option value="E2">E2</option><option value="F">F</option><option value="F1">F1</option><option value="F2">F2</option><option value="G">G</option><option value="GS 1-Y1-1">GS 1-Y1-1</option><option value="GS 1-Y1-2">GS 1-Y1-2</option><option value="GS 1-Y1-3">GS 1-Y1-3</option><option value="GS 1-Y1-4">GS 1-Y1-4</option><option value="GS 1-Y1-5">GS 1-Y1-5</option><option value="IRR 1">IRR 1</option><option value="IRR 2">IRR 2</option><option value="IRR 3">IRR 3</option><option value="IRR 4">IRR 4</option><option value="IRR2B (LEC/LAB ONLY)">IRR2B (LEC/LAB ONLY)</option><option value="M-A">M-A</option><option value="M-B">M-B</option><option value="M-C ">M-C </option><option value="MID-YEAR">MID-YEAR</option><option value="PGI">PGI</option><option value="REFRESHER">REFRESHER</option><option value="REGULAR">REGULAR</option><option value="S-A">S-A</option><option value="S-B">S-B</option><option value="S-C">S-C</option><option value="TUT">TUT</option><option value="TUT 1">TUT 1</option><option value="Y-IRR1">Y-IRR1</option><option value="Y1-1">Y1-1</option><option value="Y1-10">Y1-10</option><option value="Y1-11">Y1-11</option><option value="Y1-12">Y1-12</option><option value="Y1-13">Y1-13</option><option value="Y1-14">Y1-14</option><option value="Y1-15">Y1-15</option><option value="Y1-16">Y1-16</option><option value="Y1-17">Y1-17</option><option value="Y1-18">Y1-18</option><option value="Y1-19">Y1-19</option><option value="Y1-2">Y1-2</option><option value="Y1-20">Y1-20</option><option value="Y1-21">Y1-21</option><option value="Y1-22">Y1-22</option><option value="Y1-23">Y1-23</option><option value="Y1-24">Y1-24</option><option value="Y1-25">Y1-25</option><option value="Y1-3">Y1-3</option><option value="Y1-4">Y1-4</option><option value="Y1-5">Y1-5</option><option value="Y1-6">Y1-6</option><option value="Y1-7">Y1-7</option><option value="Y1-8">Y1-8</option><option value="Y1-9">Y1-9</option><option value="Y1-IRR 1">Y1-IRR 1</option><option value="Y1-IRR 2">Y1-IRR 2</option><option value="Y1-IRR 3">Y1-IRR 3</option><option value="Y1-IRR1">Y1-IRR1</option><option value="Y1-IRR2">Y1-IRR2</option><option value="Y1-IRR3">Y1-IRR3</option><option value="Y1-P1">Y1-P1</option><option value="Y1-P2">Y1-P2</option><option value="Y1-P3">Y1-P3</option><option value="Y1-P4">Y1-P4</option><option value="Y1-P5">Y1-P5</option><option value="Y1-P6">Y1-P6</option><option value="Y1-P7">Y1-P7</option><option value="Y1-P8">Y1-P8</option><option value="Y1-P9">Y1-P9</option><option value="Y2-1">Y2-1</option><option value="Y2-2">Y2-2</option><option value="Y2-3">Y2-3</option><option value="Y2-4">Y2-4</option><option value="Y2-5">Y2-5</option><option value="Y2-A1">Y2-A1</option><option value="Y2-IRR 2">Y2-IRR 2</option><option value="Y2-IRR1">Y2-IRR1</option><option value="Y2-IRR2">Y2-IRR2</option><option value="YA-1">YA-1</option><option value="YA-IRR1">YA-IRR1</option><option value="YB-1">YB-1</option><option value="YB-10">YB-10</option><option value="YB-11">YB-11</option><option value="YB-12">YB-12</option><option value="YB-13">YB-13</option><option value="YB-14">YB-14</option><option value="YB-15">YB-15</option><option value="YB-16">YB-16</option><option value="YB-17">YB-17</option><option value="YB-18">YB-18</option><option value="YB-19">YB-19</option><option value="YB-1B">YB-1B</option><option value="YB-2">YB-2</option><option value="YB-20">YB-20</option><option value="YB-21">YB-21</option><option value="YB-22">YB-22</option><option value="YB-23">YB-23</option><option value="YB-24">YB-24</option><option value="YB-25">YB-25</option><option value="YB-26">YB-26</option><option value="YB-27">YB-27</option><option value="YB-28">YB-28</option><option value="YB-29">YB-29</option><option value="YB-3">YB-3</option><option value="YB-30">YB-30</option><option value="YB-31">YB-31</option><option value="YB-32">YB-32</option><option value="YB-33">YB-33</option><option value="YB-34">YB-34</option><option value="YB-35">YB-35</option><option value="YB-36">YB-36</option><option value="YB-37">YB-37</option><option value="YB-38">YB-38</option><option value="YB-4">YB-4</option><option value="YB-5">YB-5</option><option value="YB-6">YB-6</option><option value="YB-7">YB-7</option><option value="YB-8">YB-8</option><option value="YB-9">YB-9</option><option value="YB-COMPLETION">YB-COMPLETION</option><option value="YB-IRR">YB-IRR</option><option value="YB-IRR1">YB-IRR1</option><option value="YB-IRR1 (COMBINED)">YB-IRR1 (COMBINED)</option><option value="YB-IRR1A (LEC/LAB ON">YB-IRR1A (LEC/LAB ON</option><option value="YB-IRR1B (LEC/LAB ON">YB-IRR1B (LEC/LAB ON</option><option value="YB-IRR2">YB-IRR2</option><option value="YB-IRR2 (COMBINED)">YB-IRR2 (COMBINED)</option><option value="YB-IRR2A (LEC/LAB ON">YB-IRR2A (LEC/LAB ON</option><option value="YB-IRR2B">YB-IRR2B</option><option value="YB-IRR3">YB-IRR3</option><option value="YB-IRR4">YB-IRR4</option><option value="YB-IRR5">YB-IRR5</option><option value="YB-IRR6">YB-IRR6</option><option value="YB-IRR7">YB-IRR7</option><option value="YB-IRREG">YB-IRREG</option><option value="YB-IRREG1">YB-IRREG1</option></select> 
+	       			        </div>
+	        
+	    </div>
+	    <div class="col-xs-3">
+	    	<label>&nbsp;</label>
+	    	<div>
+	        	
+
+	        	 <button class="btn btn-warning">
+
+	        	<i class='fa fa-search'></i> View Sections</button>     
+	        </div>
+	    </div>
+	    </form>
+	 </div>
+ </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade modal90" id="modal-info">
+	
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal heading -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title"></h3>
+			</div>
+			<!-- // Modal heading END -->
+			
+			<!-- Modal body -->
+			<div class="modal-body">
+			<div class='row'>
+				<div class="innerAll">
+					<div class="innerLR"></div>
+					</div>
+				</div>
+			</div>
+			<!-- // Modal body END -->
+		</div>
+	</div>
+	
+</div>
+<!-- // Modal END -->
+
+<div class="modal fade " id="conflict_modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+            <!-- Modal heading -->
+            			<div class="modal-header">
+                				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title">Enrolled</h3>
+                            </div>
+                        
+			<!-- // Modal heading END -->
+			
+			<!-- Modal body -->
+			<div class="modal-body">
+                <div class="table-responsive">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<td>Student Number</td>
+					<td>Subject</td>
+					<td>Schedule</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/tables/datatables/assets/lib/js/jquery.dataTables.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/tables/datatables/assets/lib/extras/TableTools/media/js/TableTools.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/tables/datatables/assets/lib/extras/ColVis/media/js/ColVis.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/tables/datatables/assets/custom/js/DT_bootstrap.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-checkbox/fuelux-checkbox.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/tables/classic/assets/js/tables-classic.init.js?v=v2.1.0"></script>
+
+<script type="text/javascript">
+	function fnInitCompleteCallback(that){
+		var p = that.parent();
+    	var l = p.find('label').not('.checkbox-custom');
+
+    	l.each(function(index, el) {
+    		var iw = $("<div>").addClass('col-md-8').appendTo($(el).parent());
+    		$(el).parent().addClass('form-group margin-none').parent().addClass('form-horizontal');
+            $(el).find('input, select').addClass('form-control').removeAttr('size').appendTo(iw);
+            $(el).addClass('col-md-4 control-label');
+    	});
+
+    	var s = p.find('select');
+    	s.addClass('.selectpicker').selectpicker();
+	}
+	$("#CourseCode,#SY,#YearLevel,#Sem").unbind("change").bind("change",function(){
+		$("#form_curriculum").submit();
+	});
+
+	/* Initialize FullCalendar */
+    var dateSet = new Date('2013-08-05 12:00:00 AM');
+    var d = dateSet.getDate();
+    var m = dateSet.getMonth();
+    var y = dateSet.getFullYear();
+    var schedlist = [];
+    var minmax = [];
+    $('div[name="display_weeksched"]').each(function(){
+        var psid = $(this).attr("psid");
+        $(this).fullCalendar({
+            defaultView: "agendaWeek",
+            allDaySlot:false,
+            columnFormat: {
+                month: "ddd",
+                week: "ddd",
+                day: "dddd"
+            },
+            header: {
+                left: '',
+                center: '',
+                right: ''
+            },
+            slotMinutes: 15,
+            firstDay: 1,
+            editable: false,
+            eventClick:function(i){
+                //display_schedule(i.schedid, i.psid);
+            },
+            minTime: minmax[psid]['min'],
+            maxTime: minmax[psid]['max'],
+            events: schedlist[psid],
+            eventBackgroundColor: '#378006',
+            eventTextColor: '#000000'
+        });
+        $(this).fullCalendar('gotoDate', dateSet);
+	});
+	</script>
+</div>
+		</div>
+		<!-- // Content END -->
+
+				</div>
+		<div class="clearfix"></div>
+		<!-- // Sidebar menu & content wrapper END -->
+
+		<div id="footer" class="hidden-print">
+
+			<!--  Copyright Line -->
+			<div class="copy">&copy; 2017 - <a target='_BLANK' href="http://www.pinnacleasia.com">Pinnacle Technologies, Inc.</a> - All Rights Reserved.</div>
+			<!--  End Copyright Line -->
+
+		</div>
+		<!-- // Footer END -->
+
+
+
+	</div>
+	<!-- // Main Container Fluid END -->
+<!-- Modal -->
+<div class="modal fade" id="modal-mainpage">
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal heading -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title"></h3>
+			</div>
+			<!-- // Modal heading END -->
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="innerAll">
+					<div class="innerLR">
+
+					</div>
+				</div>
+			</div>
+			<!-- // Modal body END -->
+		</div>
+	</div>
+
+</div>
+<!-- // Modal END -->
+
+<!-- Modal -->
+
+<!-- // Modal END -->
+
+<div class="modal fade" id="modal-inactivity">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title"></h3>
+			</div>
+
+			<div class="modal-body">
+				<div class="">
+					<div class="innerLR text-center"><br>
+						<h4>Your account is now suspended.</h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<a class="btn btn-info" data-dismiss="modal" aria-hidden="true" href="https://sis.fatima.edu.ph/logout" onclick="event.preventDefault();document.getElementById('logoutForm').submit();">
+					Confirm
+				</a>
+				<form id="logoutForm" action="https://sis.fatima.edu.ph/logout" method="POST" style="display: none;"><input type="hidden" name="_token" value="W3KLXEWyMnM0lXWMLtTjx1JtFwxkIbkUdKOHgruU"></form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://sis.fatima.edu.ph/assets/components/library/bootstrap/js/bootstrap.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/breakpoints/breakpoints.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-checkbox/fuelux-checkbox.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/fuelux-radio/fuelux-radio.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/bootstrap-select/assets/lib/js/bootstrap-select.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/bootstrap-select/assets/custom/js/bootstrap-select.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/notifications/notyfy/assets/lib/js/jquery.notyfy.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/modals/assets/js/bootbox-4.4.0.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/tables/classic/assets/js/tables-classic.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v2.1.0"></script>
+
+
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/holder/holder.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/widgets/widget-collapsible/assets/widget-collapsible.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/intercom.min.js"></script>
+<script src="https://sis.fatima.edu.ph/js/idle-timer.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/idle-timer.init.js?v=v2.1.0&amp;4"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/core/js/core.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/jquery.ba-throttle-debounce.js"></script>
+<script src="https://sis.fatima.edu.ph/js/functions.js"></script>
+
+<script>
+	(function($){
+		// use debounce so we dont update menus every tick of the event
+		$(window).on('resize',$.debounce(250,function(e){
+			var nav = 0; // $('.navbar.main').height();
+			var footer = $('#footer').height();
+			var h = $(window).height();
+			$focused = $(document.activeElement);
+			$('.dropdown-menu').each(function(){
+				// http://stackoverflow.com/a/5974377/6458222
+				// show then hide to get offset of non displayed;
+				// but show/hide doesnt work so we will simulate click..
+				var $parent = $(this).parent('li.dropdown');
+				var visible = $parent.hasClass('open');
+				// console.log(visible);
+				if(!visible){
+					$parent.find('[data-toggle]').dropdown('toggle'); //('click');
+					$focused.trigger('focus');
+				}
+				var top = $(this).offset().top;
+				if(!visible){
+					$parent.find('[data-toggle]').dropdown('toggle'); //('click');
+					$focused.trigger('focus');
+				}
+				var maxHeight = h - (nav + footer + top);
+				$(this).css('max-height',maxHeight);
+				$(this).css('overflow-y','auto');
+			});
+		}));
+		$(window).trigger('resize');
+
+		$('body').on('mouseover','#menu .dropdown,.navbar.main .dropdown',function(e){
+			var self = this;
+			$(self).addClass('open').removeClass('removeReady');
+		}).on('mouseout','#menu .dropdown,.navbar.main .dropdown',function(){
+			var self = this;
+			$(self).addClass('removeReady');
+
+			setTimeout(function(e){
+				if($(self).hasClass('removeReady')){
+					$(self).removeClass('open').removeClass('removeReady');
+				}
+			},350);
+		});
+	})(jQuery);
+	function userauthenticate(message,access_id,nextevent,nexterrorevent){
+		var useraccessbox;
+		$.ajax({
+			url: "https://sis.fatima.edu.ph/useraccess",
+			data:{
+				message:message,
+				access_id:access_id
+			},
+			type:"POST",
+			success:function(display){
+				useraccessbox = bootbox.dialog({
+					title: "User Authentication",
+					message:display,
+					size: "small",
+					buttons: {
+				        confirm: {
+				            label: 'Authenticate',
+				            className: 'btn-success',
+				            callback:function(a){
+				            	if($("#form_useraccess input[name='user_username']").val() == ""){
+				            		$.notyfy.closeAll();
+				            		$("#form_useraccess .form_notification").notyfy({
+										text: "Username is required",
+										type: 'error',
+										timeout: true
+									});
+									$("#form_useraccess input[name='user_username']").focus().select();
+				            	}else if($("#form_useraccess input[name='user_password']").val() == ""){
+				            		$.notyfy.closeAll();
+				            		$("#form_useraccess .form_notification").notyfy({
+										text: "Password is required",
+										type: 'error',
+										timeout: true
+									});
+									$("#form_useraccess input[name='user_password']").focus().select();
+				            	}else{
+						    		var form_data = $("#form_useraccess").serializeArray();
+							    		form_data.push({
+											name : 'access_id',
+											value: access_id
+										});
+						    		$.ajax({
+										url: "https://sis.fatima.edu.ph/userauthenticate",
+										data:form_data,
+										dataType:"JSON",
+										type:"POST",
+										success:function(dta){
+											$.notyfy.closeAll();
+											if(dta.status == 1){
+												if(typeof nextevent === 'function'){
+									    			nextevent();
+									    		}
+									    		useraccessbox.modal("hide");
+									    	}else{
+									    		$("#form_useraccess .form_notification").notyfy({
+													text: dta.message,
+													type: 'error',
+													timeout: true
+												});
+												$("#form_useraccess input[name='user_password']").focus().select();
+									    	}
+										}
+									});
+						    	}
+						    	return false;
+						    }
+				        },
+				        cancel: {
+				            label: 'Cancel',
+				            className: 'btn-danger',
+				            callback: function(a){
+				            	if(typeof nexterrorevent === 'function'){
+					    			nexterrorevent();
+					    		}
+				            	useraccessbox.modal("hide");
+				            }
+				        }
+				    },
+				    callback:function(a){
+				    	return false;
+				    }
+				}).on('shown.bs.modal', function (e) {
+					var myself = $(this);
+					// console.log(myself[0]);
+			        $("#form_useraccess input[name='user_username']").focus();
+			        $("#form_useraccess input[name='user_username'],#form_useraccess input[name='user_password']").keyup(function(e){
+			        	if(e.keyCode == 13){
+			        		myself.find("button[data-bb-handler='confirm']").click();
+			        	}
+			        });
+			    });
+			},
+			error:function(){
+				bootbox.alert("Oops, somethings wrong!");
+			}
+		});
+	}
+
+	jQuery.each( [ "patch", "put", "delete" ], function( i, method ) {
+		jQuery[ method ] = function( url, data, callback, type ) {
+			if ( jQuery.isFunction( data ) ) {
+			type = type || callback;
+			callback = data;
+			data = undefined;
+			}
+
+			return jQuery.ajax({
+			url: url,
+			type: method,
+			dataType: type,
+			data: data,
+			success: callback
+			});
+		};
+	});
+
+	
+	$("#modal-message").modal("show");
+				</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142477114-4"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', "UA-142477114-4");
+</script>
+<script src="//rum-static.pingdom.net/pa-5ed5d229bb91310015000266.js" async></script>
+
+</body>
+</html>

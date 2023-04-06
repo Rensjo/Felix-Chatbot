@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 fluid top-full sidebar sidebar-full"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 fluid top-full sticky-top sidebar sidebar-full"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 fluid top-full sticky-top sidebar sidebar-full"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie gt-ie8 fluid top-full sticky-top sidebar sidebar-full"> <![endif]-->
+<!--[if !IE]><!--><html class="fluid top-full sticky-top sidebar sidebar-full"><!-- <![endif]-->
+<head>
+    <title>Our Lady Of Fatima University</title>
+	<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+<!-- CSRF Token -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://sis.fatima.edu.ph/assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sis.fatima.edu.ph/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sis.fatima.edu.ph/assets/icons/favicon-16x16.png">
+<link rel="manifest" href="https://sis.fatima.edu.ph/assets/icons/site.webmanifest">
+<link rel="mask-icon" href="https://sis.fatima.edu.ph/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="https://sis.fatima.edu.ph/assets/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="https://sis.fatima.edu.ph/assets/icons/browserconfig.xml">
+<meta name="theme-color" content="#008C44">	<!-- CSRF Token -->
+    <meta name="csrf-token" content="LvEJ7HQ4aekT7bSm7zx6LaCoZ2lB7Bdj8ipxd9sk">
+	
+	<!-- 
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	<link rel="stylesheet/less" href="https://sis.fatima.edu.ph/assets/less/admin/module.admin.page.login.less" />
+	-->
+	
+		<!--[if lt IE 9]><link rel="stylesheet" href="https://sis.fatima.edu.ph/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+	<link rel="stylesheet" href="https://sis.fatima.edu.ph/assets/css/admin/module.admin.page.login.min.css" />
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery/jquery.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/jquery/jquery-migrate.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/library/modernizr/modernizr.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/less-js/less.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v2.1.0"></script>	
+
+<!-- Scripts -->
+<script>
+    window.Laravel = {"csrfToken":"LvEJ7HQ4aekT7bSm7zx6LaCoZ2lB7Bdj8ipxd9sk","url":"https:\/\/sis.fatima.edu.ph"}</script>
+<style>
+	.text-dark,
+	.text-dark::before{
+		color: #333 !important;
+	}
+</style>
+</head>
+<body class="login ">
+	
+	<!-- Wrapper -->
+<div id="login">
+
+	<div><img src='https://sis.fatima.edu.ph/assets/images/university_logo.default.png' style='width:80vmin;display: block;margin:0 auto;'></div>
+	<div class="container">
+	
+		<h1 class="glyphicons lock text-dark">Academic Information Management System <i class="text-dark"></i></h1>
+		<div class="wrapper">
+
+
+			<!-- Box -->
+			<div class="widget widget-heading-simple widget-body-gray">
+				
+				<div class="widget-body">
+												<!-- Form -->
+				<form id='form_login' method="post" action="https://sis.fatima.edu.ph/student/verify">
+					<input type="hidden" name="_token" value="LvEJ7HQ4aekT7bSm7zx6LaCoZ2lB7Bdj8ipxd9sk">
+					<label>Student Number</label>
+					<input type="text" class="form-control" placeholder="Your Student Number" name='username' value="" required/> 
+					<label>Password</label>
+					<input type="password" class="form-control" placeholder="Your Password" name='password' required/>
+					                    <div class="loginLink">
+						<a class="password" href="https://sis.fatima.edu.ph/password/reset">Forgot your password?</a>
+												<span style='opacity:0;display:none;'>
+							<small>Not yet a student?</small>
+							<br>
+							<a class="signup btn-xs btn btn-default" href="https://sis.fatima.edu.ph/apply">Apply now !</a>
+						</span>
+											</div>
+					<div class="separator bottom clearfix"></div>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="uniformjs"><label class="checkbox"><input type="checkbox" value="remember-me" name="remember" >Remember me</label></div>
+						</div>
+						<div class="col-md-4 center">
+							<button class="btn btn-block btn-inverse" type="submit">Sign In</button>
+						</div>
+					</div>
+				</form>
+				<!-- // Form END -->
+						
+			</div>
+			<div class="widget-footer text-center">
+				<p><i class='fa fa-refresh'></i> Please enter your username and password</p>
+			</div>
+		</div>
+		<div class="text-right">
+			<p>
+				<a class="btn" style='background: #EA4335;color: #FFFFFF;' href="https://sis.fatima.edu.ph/login/google"><span style="font-size:8px;">Signin with<br></span> Google</a>
+			</p>
+			<p>
+				
+			</p>
+		</div>
+		<!-- // Box END -->
+		</div>
+	</div>
+	
+</div>
+<div id="list"></div>
+<!-- // Wrapper END -->
+<!-- Global -->
+<script>
+var basePath = '',
+	commonPath = "https://sis.fatima.edu.ph/assets",
+	rootPath = '../',
+	DEV = false,
+	componentsPath = "https://sis.fatima.edu.ph/assets/components";
+
+var primaryColor = '#4a8bc2',
+	dangerColor = '#b55151',
+	infoColor = '#74a6d0',
+	successColor = '#609450',
+	warningColor = '#ab7a4b',
+	inverseColor = '#45484d';
+
+var themerPrimaryColor = primaryColor;
+$("[name='username']").focus();
+$("#form_login").submit(function(){
+	$(".fa-refresh").addClass("fa-spin");
+});
+
+$username = $('[name="username"]');
+$remember = $('[name=remember]');
+$username.on('change',function(){
+	$remember.trigger('change');
+});
+$remember.on('change',function(e){
+	localStorage.removeItem('username');
+	if($(this).prop('checked')){
+		localStorage.setItem('username',$username.val());
+	}
+});
+savedusername = localStorage.getItem('username');
+$username.val(savedusername);
+$remember.prop('checked',!!savedusername);
+
+setTimeout(function(){
+	$(document).idleTimer('destroy');
+	window.location = "dashboard.html";
+	/*bootbox.alert("Session timeout",function(){
+		window.location = window.location.href;
+	});*/
+},60000);
+
+
+localStorage.setItem('login_url',location.pathname);
+
+</script>
+
+<script src="https://sis.fatima.edu.ph/assets/components/library/bootstrap/js/bootstrap.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/slimscroll/jquery.slimscroll.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/plugins/breakpoints/breakpoints.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/modals/assets/js/bootbox-4.4.0.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.1.0"></script>
+<script src="https://sis.fatima.edu.ph/js/intercom.min.js"></script>	
+<script src="https://sis.fatima.edu.ph/js/idle-timer.js?v=v2.1.0"></script>	
+<script src="https://sis.fatima.edu.ph/js/idle-timer.login.init.js?v=v2.1.0"></script>	
+<script src="https://sis.fatima.edu.ph/assets/components/core/js/core.init.js?v=v2.1.0"></script>	
+<script src="https://sis.fatima.edu.ph/js/webrtc.js"></script>	
+<script src="//rum-static.pingdom.net/pa-600654c0499446001100024f.js" async></script>
+</body>
+</html>
